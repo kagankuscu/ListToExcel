@@ -1,6 +1,7 @@
 package com.example.listtoexcel.add
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,7 @@ class AddFragment : Fragment() {
     private var workers = ""
     private var price = ""
     private var totalPrice = 0.0
-    private val arrayList = ArrayList<String>(5)
+    private val arrayList = ArrayList<WorkDetails>(5)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,25 +43,39 @@ class AddFragment : Fragment() {
         price = editTextPrice.text.toString()
 
         if (date.isNotBlank() && dailyJob.isNotBlank() && workers.isNotBlank() && price.isNotBlank()) {
-            arrayList.add(date)
-            arrayList.add(dailyJob)
-            arrayList.add(workers)
-            arrayList.add(price)
-
             totalPrice = workers.toDouble() * price.toDouble()
-            arrayList.add(totalPrice.toString())
 
-            Toast.makeText(
-                context, "Date:$date\n" +
-                        "Daily Job:$dailyJob\n" +
-                        "Workers:$workers\n" +
-                        "Price:$price\n" +
-                        "Total price:$totalPrice\n" +
-                        "arrayLisdt size:${arrayList.size}",
-                Toast.LENGTH_LONG
-            ).show()
+            val a1 = WorkDetails(date, dailyJob, workers, price.toInt(), totalPrice.toInt())
+            arrayList.add(a1)
+
+            showAddedToast()
+            clearAllEditText()
+
         } else {
-            Toast.makeText(context, getString(R.string.warning_message_fulfill), Toast.LENGTH_LONG).show()
+            showFailToast()
         }
+    }
+
+    private fun showAddedToast() {
+        Toast.makeText(
+            context, "Date:$date\n" +
+                    "Daily Job:$dailyJob\n" +
+                    "Workers:$workers\n" +
+                    "Price:$price\n" +
+                    "Total price:$totalPrice\n",
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    private fun showFailToast() {
+        Toast.makeText(context, getString(R.string.warning_message_fulfill), Toast.LENGTH_LONG)
+            .show()
+    }
+
+    private fun clearAllEditText() {
+        editTextDate.text.clear()
+        editTextDailyJob.text.clear()
+        editTextWorkers.text.clear()
+        editTextPrice.text.clear()
     }
 }
