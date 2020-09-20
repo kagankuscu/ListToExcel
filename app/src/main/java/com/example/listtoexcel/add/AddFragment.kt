@@ -17,6 +17,7 @@ class AddFragment : Fragment() {
     private var workers = ""
     private var price = ""
     private var totalPrice = 0.0
+    private val arrayList = ArrayList<String>(5)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,27 +29,38 @@ class AddFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_add, container, false)
 
         binding.btnAdd.setOnClickListener {
-            testfun(it)
+            add()
         }
 
         return binding.root
     }
 
-    fun testfun(view: View) {
+    private fun add() {
         date = editTextDate.text.toString()
         dailyJob = editTextDailyJob.text.toString()
         workers = editTextWorkers.text.toString()
         price = editTextPrice.text.toString()
 
-        totalPrice = workers.toDouble() * price.toDouble()
+        if (date.isNotBlank() && dailyJob.isNotBlank() && workers.isNotBlank() && price.isNotBlank()) {
+            arrayList.add(date)
+            arrayList.add(dailyJob)
+            arrayList.add(workers)
+            arrayList.add(price)
 
-        Toast.makeText(
-            context, "Date:$date\n" +
-                    "Daily Job:$dailyJob\n" +
-                    "Workers:$workers\n" +
-                    "Price:$price\n" +
-                    "Total price:$totalPrice\n",
-            Toast.LENGTH_LONG
-        ).show()
+            totalPrice = workers.toDouble() * price.toDouble()
+            arrayList.add(totalPrice.toString())
+
+            Toast.makeText(
+                context, "Date:$date\n" +
+                        "Daily Job:$dailyJob\n" +
+                        "Workers:$workers\n" +
+                        "Price:$price\n" +
+                        "Total price:$totalPrice\n" +
+                        "arrayLisdt size:${arrayList.size}",
+                Toast.LENGTH_LONG
+            ).show()
+        } else {
+            Toast.makeText(context, getString(R.string.warning_message_fulfill), Toast.LENGTH_LONG).show()
+        }
     }
 }

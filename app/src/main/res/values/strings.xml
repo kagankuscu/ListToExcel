@@ -11,4 +11,6 @@
         to\n
         List to Excel
     </string>
+
+    <string name="warning_message_fulfill">Please Fulfill.</string>
 </resources>
