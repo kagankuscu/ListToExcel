@@ -19,7 +19,7 @@
         Daily Job:<b>%s</b>\n
         Workers:<b>%s</b>\n
         Price:<b>%s</b>\n
-        Total price:<b>%s</b>\n
+        Total price:<b>%d</b>\n
     </string>
 
     <string name="warning_message_fulfill">Please Fulfill.</string>
