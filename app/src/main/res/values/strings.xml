@@ -1,5 +1,7 @@
-<resources>
-    <string name="app_name">List to Excel</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">
+        <xliff:g>List to Excel</xliff:g>
+    </string>
     <string name="export">Export</string>
     <string name="date">Date</string>
     <string name="add">Add</string>
@@ -10,6 +12,14 @@
         Welcome\n
         to\n
         List to Excel
+    </string>
+
+    <string name="toast_message">
+        Date:<b>%s</b>\n
+        Daily Job:<b>%s</b>\n
+        Workers:<b>%s</b>\n
+        Price:<b>%s</b>\n
+        Total price:<b>%s</b>\n
     </string>
 
     <string name="warning_message_fulfill">Please Fulfill.</string>

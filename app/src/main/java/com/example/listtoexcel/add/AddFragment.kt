@@ -58,11 +58,15 @@ class AddFragment : Fragment() {
 
     private fun showAddedToast() {
         Toast.makeText(
-            context, "Date:$date\n" +
-                    "Daily Job:$dailyJob\n" +
-                    "Workers:$workers\n" +
-                    "Price:$price\n" +
-                    "Total price:$totalPrice\n",
+            context,
+            context?.resources?.getString(
+                R.string.toast_message,
+                date,
+                dailyJob,
+                workers,
+                price,
+                totalPrice
+            ),
             Toast.LENGTH_LONG
         ).show()
     }
