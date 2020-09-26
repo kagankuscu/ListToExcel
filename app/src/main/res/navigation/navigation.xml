@@ -5,17 +5,9 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.example.listtoexcel.add.AddFragment"
-        android:label="AddFragment" >
-        <action
-            android:id="@+id/action_addFragment_to_listFragment"
-            app:destination="@id/listFragment" />
-    </fragment>
+        android:label="AddFragment" />
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.listtoexcel.list.ListFragment"
-        android:label="ListFragment" >
-        <action
-            android:id="@+id/action_listFragment_to_addFragment"
-            app:destination="@id/addFragment" />
-    </fragment>
+        android:label="ListFragment" />
 </navigation>
