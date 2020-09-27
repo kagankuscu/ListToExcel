@@ -26,16 +26,18 @@ class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
 
         return when (item.itemId) {
+            android.R.id.home -> {
+                super.onBackPressed()
+                actionBar?.setDisplayHomeAsUpEnabled(false)
+                item.onNavDestinationSelected(navController)
+            }
             R.id.listFragment -> {
                 actionBar?.setDisplayHomeAsUpEnabled(true)
                 item.onNavDestinationSelected(navController)
             }
-            else -> super.onOptionsItemSelected(item)
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
         }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
     }
 }
