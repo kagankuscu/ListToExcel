@@ -9,7 +9,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="31/09/2020"
+        android:text="31.09.2020"
         android:textColor="#000"
         android:textSize="30sp" />
 
@@ -18,12 +18,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvDate"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:text="Details of works"
         android:textColor="#000"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDate"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/tvDailyJob"
+        android:text="160"
+        android:textColor="#000"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/tvCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDate"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@+id/tvPrice"
+        android:text="BGN"
+        android:textColor="#000"
+        android:textSize="12sp" />
 
 
 </RelativeLayout>
