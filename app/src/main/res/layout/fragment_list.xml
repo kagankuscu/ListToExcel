@@ -11,8 +11,6 @@
             type="com.example.listtoexcel.list.ListViewModel" />
     </data>
 
-    <!--    add dependency for RecyclerViewHolder and add here.-->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -8,7 +8,7 @@ import com.example.listtoexcel.R
 import com.example.listtoexcel.add.WorkDetails
 import kotlinx.android.synthetic.main.list_item_layout.view.*
 
-class RecyclerViewAdapter(var workDetails: List<WorkDetails>) :
+class RecyclerViewAdapter(var workDetails: ArrayList<WorkDetails>) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
