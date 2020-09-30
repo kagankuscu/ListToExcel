@@ -8,11 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.listtoexcel.R
 import com.example.listtoexcel.databinding.FragmentAddBinding
+import com.example.listtoexcel.share.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 
 class AddFragment : Fragment() {
+    private lateinit var shareViewModel: SharedViewModel
+
     private var date = ""
     private var dailyJob = ""
     private var workers = ""
@@ -28,6 +32,12 @@ class AddFragment : Fragment() {
 
         val binding: FragmentAddBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add, container, false)
+        val addViewModel = ViewModelProvider(this).get(AddViewModel::class.java)
+
+        shareViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+
+        binding.lifecycleOwner = this
+        binding.addViewModel = addViewModel
 
         binding.btnAdd.setOnClickListener {
             add()
@@ -47,6 +57,9 @@ class AddFragment : Fragment() {
 
             val a1 = WorkDetails(date, dailyJob, workers, price.toInt(), totalPrice.toInt())
             arrayList.add(a1)
+            shareViewModel.setWorkDetails(arrayList)
+
+            Log.i("AddFragment", "AddViewModel.workDetails: ${shareViewModel.workDetails.value}")
 
             showAddedToast()
             clearAllEditText()
