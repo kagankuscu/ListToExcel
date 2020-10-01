@@ -62,7 +62,7 @@
                 style="@style/HeadLine2"
                 android:layout_width="100dp"
                 android:layout_marginStart="@dimen/margin_16"
-                android:text="@string/workers"
+                android:text="@string/quantity"
                 app:layout_constraintBaseline_toBaselineOf="@+id/editTextWorkers"
                 app:layout_constraintEnd_toStartOf="@+id/editTextWorkers"
                 app:layout_constraintHorizontal_bias="0.25"

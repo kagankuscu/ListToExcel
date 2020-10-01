@@ -1,11 +1,13 @@
 package com.example.listtoexcel.add
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +15,8 @@ import com.example.listtoexcel.R
 import com.example.listtoexcel.databinding.FragmentAddBinding
 import com.example.listtoexcel.share.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class AddFragment : Fragment() {
     private lateinit var shareViewModel: SharedViewModel
@@ -46,13 +50,17 @@ class AddFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun add() {
         date = editTextDate.text.toString()
         dailyJob = editTextDailyJob.text.toString()
         workers = editTextWorkers.text.toString()
         price = editTextPrice.text.toString()
 
-        if (date.isNotBlank() && dailyJob.isNotBlank() && workers.isNotBlank() && price.isNotBlank()) {
+        if (date.isEmpty())
+            getTodayDate()
+
+        if (dailyJob.isNotBlank() && workers.isNotBlank() && price.isNotBlank()) {
             totalPrice = workers.toDouble() * price.toDouble()
 
             val a1 = WorkDetails(date, dailyJob, workers, price.toInt(), totalPrice.toInt())
@@ -94,5 +102,11 @@ class AddFragment : Fragment() {
         editTextDailyJob.text.clear()
         editTextWorkers.text.clear()
         editTextPrice.text.clear()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun getTodayDate() {
+        val currentTime = LocalDateTime.now()
+        date = currentTime.format(DateTimeFormatter.ofPattern("dd/MM/yyy"))
     }
 }
