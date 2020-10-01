@@ -23,7 +23,7 @@ class RecyclerViewAdapter(var workDetails: ArrayList<WorkDetails>) :
         holder.itemView.apply {
             tvDate.text = workDetails[position].date
             tvDailyJob.text = workDetails[position].dailyJob
-            tvPrice.text = workDetails[position].price.toString()
+            tvPrice.text = workDetails[position].totalPrice.toString()
         }
     }
 
