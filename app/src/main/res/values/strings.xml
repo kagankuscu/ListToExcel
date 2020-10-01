@@ -6,7 +6,7 @@
     <string name="date">Date</string>
     <string name="add">Add</string>
     <string name="daily_job">Daily Job</string>
-    <string name="workers">Workers</string>
+    <string name="quantity">Quantity</string>
     <string name="price">Price</string>
     <string name="welcome_message">
         Welcome\n
