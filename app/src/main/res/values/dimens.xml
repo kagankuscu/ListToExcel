@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_16">16dp</dimen>
+
     <dimen name="button_textView_space">100dp</dimen>
     <dimen name="margin_far_away_from_the_top">32dp</dimen>
     <dimen name="textView_width">100dp</dimen>
+
+    <!-- margins    -->
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_32">32dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
 </resources>
