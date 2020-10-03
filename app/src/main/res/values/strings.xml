@@ -15,14 +15,16 @@
     </string>
 
     <string name="toast_message">
-        Date:<b>%s</b>\n
-        Daily Job:<b>%s</b>\n
-        Workers:<b>%s</b>\n
-        Price:<b>%s</b>\n
-        Total price:<b>%s</b>\n
+        Date: <b>%s</b>\n
+        Daily Job: <b>%s</b>\n
+        Workers: <b>%s</b>\n
+        Price: <b>%s</b>\n
+        Total price: <b>%s</b>\n
     </string>
 
     <string name="warning_message_fulfill"><b><big>Please Fulfill.</big></b></string>
     <string name="list">List</string>
     <string name="see_details">See Details</string>
+    <string name="details">Details</string>
+    <string name="btn_ok">OK</string>
 </resources>
